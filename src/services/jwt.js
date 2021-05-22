@@ -6,24 +6,24 @@ dotenv.config();
 
 const SECRET = process.env.SECRET_KEY;
 
-const createToken = async function (userData) {
+const createToken = function (userData) {
   const payload = {
     sub: userData,
     iat: moment().unix(),
     exp: moment().add(14, "days").unix(),
   };
-  return await jwt.encode(payload, SECRET);
+  return jwt.encode(payload, SECRET);
 };
 
-const createCustomToken = async function (userData, iat, exp) {
+const createCustomToken = function (userData, iat, exp) {
   const payload = {
     sub: userData,
     iat,
     exp,
   };
-  return await jwt.encode(payload, SECRET);
+  return jwt.encode(payload, SECRET);
 };
 
-const decodeToken = async (token) => await jwt.decode(token, SECRET);
+const decodeToken = (token) => jwt.decode(token, SECRET);
 
 export default { createToken, decodeToken, createCustomToken };

@@ -6,8 +6,8 @@ import moment from "moment";
 (async function main() {
   await server.createServer();
 
-  const validToken = await jwt.createToken({ name: "ivan" });
-  const expiredToken = await jwt.createCustomToken(
+  const validToken = jwt.createToken({ name: "ivan" });
+  const expiredToken = jwt.createCustomToken(
     null,
     moment().subtract(2, "days").unix(),
     moment().subtract(1, "days").unix()

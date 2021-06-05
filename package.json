@@ -5,7 +5,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon ./test/task.test.js"
+    "start": "node ./src/index.js",
+    "test:auth": "nodemon ./test/task.test.js",
+    "test:login": "nodemon ./test/login.test.js"
   },
   "author": "ivan riboldi",
   "license": "MIT",

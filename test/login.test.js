@@ -1,5 +1,8 @@
-import server from "../src/routes/server.js";
+import server from "../src/server.js";
 import axios from "axios";
+/* import dotenv from "dotenv";
+
+dotenv.config(); */
 
 (async function main() {
   await server.createServer();
@@ -11,7 +14,10 @@ import axios from "axios";
   };
 
   try {
-    const res = await axios.post(`http://localhost:3000/login`, validBody);
+    const res = await axios.post(
+      `http://localhost:${process.env.PORT}/login`,
+      validBody
+    );
     console.log("Respuesta: ", res.data);
   } catch (err) {
     console.error(err);

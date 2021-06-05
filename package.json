@@ -6,9 +6,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./src/index.js",
-    "dev":"nodemon ./src/index.js",
+    "dev": "nodemon ./src/index.js",
     "test:auth": "nodemon ./test/task.test.js",
-    "test:login": "nodemon ./test/login.test.js"
+    "test:login": "nodemon ./test/login.test.js",
+    "test:reservas": "nodemon ./test/cancelarReserva.test.js"
   },
   "author": "ivan riboldi",
   "license": "MIT",

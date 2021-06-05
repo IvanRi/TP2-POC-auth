@@ -1,7 +1,10 @@
-import server from "../src/routes/server.js";
+import server from "../src/server.js";
 import jwt from "../src/services/jwt.js";
 import axios from "axios";
 import moment from "moment";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 (async function main() {
   await server.createServer();

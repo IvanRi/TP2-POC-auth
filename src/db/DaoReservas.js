@@ -120,6 +120,20 @@ function crearDaoReservas() {
       }
       return reservasPorUsuario;
     },
+    cancelOneReservation: (id) => {
+      const index = reservas.findIndex((reserva) => reserva.id == id);
+      if (index === -1) throw new Error("Reserva inexistente");
+      const updatedItem = {
+        ...reservas[index],
+        cancelada: true,
+        activa: false,
+      };
+      reservas.splice(1, 1, updatedItem);
+      return {
+        message: "Cancelacion exitosa.",
+        cancelItem: updatedItem,
+      };
+    },
   };
 }
 

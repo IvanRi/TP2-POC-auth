@@ -1,4 +1,4 @@
-import jwt from "../../services/jwt.js";
+import jwt from "../services/jwt.js";
 
 export const isAuth = async (req, res, next) => {
   const token = req.headers.authorization;

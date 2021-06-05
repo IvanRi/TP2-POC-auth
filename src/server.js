@@ -1,16 +1,19 @@
 import express from "express";
 import { isAuth as auth } from "./middlewares/auth.js";
-import { createPrivateRoute } from "./task/index.js";
-import { createLoginRoute } from "./login/index.js";
+import { createPrivateRoute } from "./routes/task/index.js";
+import { createLoginRoute } from "./routes/login/index.js";
 //dao
-import { crearDaoLogin } from "../db/daoLogin.js";
+import { crearDaoLogin } from "./db/daoLogin.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 function createServer() {
   const app = express();
 
   app.use(express.json());
 
-  const port = 3000;
+  const port = process.env.PORT;
 
   app.use("/todo", auth, createPrivateRoute());
   app.use("/login", createLoginRoute(crearDaoLogin()));

@@ -1,3 +1,3 @@
-import server from "./routes/server.js";
+import server from "./server.js";
 
 await server.createServer();
